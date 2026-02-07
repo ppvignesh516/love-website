@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I Love You ❤️</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: pink;
+    }
+
+    .box {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 40px;
+      color: red;
+    }
+
+    button {
+      padding: 10px 25px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    #no {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h1>Happy Valentine’s Day 💖🌹</h1>
+    <button onclick="yesClick()">same to you</button>
+    <button id="no" onmouseover="moveNo()">No</button>
+  </div>
+<script>
+  let moveCount = 0;
+
+  function yesClick() {
+    alert("I love you too 😍❤️");
+  }
+
+  function moveNo() {
+    let noBtn = document.getElementById("no");
+
+    if (moveCount < 10) {
+      let x = Math.random() * (window.innerWidth - 100);
+      let y = Math.random() * (window.innerHeight - 100);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+      moveCount++;
+    } else {
+      noBtn.innerText = "Please no 😭";
+    }
+  }
+</script>
+
+
+</body>
+</html>
