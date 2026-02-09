@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine</title>
+    <style>
+        /* Background and Font setup */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffebee; /* Light Pink color */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 350px;
+        }
+
+        h1 { color: #d32f2f; font-size: 24px; }
+        p { color: #555; font-size: 14px; }
+
+        .btn-container {
+            margin-top: 30px;
+            position: relative;
+            height: 50px;
+        }
+
+        button {
+            padding: 10px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            border: none;
+            font-weight: bold;
+        }
+
+        #yesBtn {
+            background-color: #ff4081;
+            color: white;
+            margin-right: 15px;
+        }
+
+        #noBtn {
+            background-color: #f44336;
+            color: white;
+            position: absolute; /* Idhu dhaan button-ah oda vaikum */
+            transition: 0.1s;
+        }
+
+        img { width: 150px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="card" id="mainCard">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXM0cng1djhidDhtdG83cHo2cDZrbDEzYWg0OGs1ZDRnaGNhcXh6NCZlcD12MV9naWZzX3RyZW5kaW5nJmN0PWc/MET6EjwtM0L3vdYp7L/giphy.gif" class="giphy-img" alt="Proposal GIF">
+        
+        <h1 id="question"> will You Accept my valentine day wish ?</h1>
+        <p>Don't waste your time to follow the No 😉</p>
+
+        <div class="btn-container">
+            <button id="yesBtn" onclick="nextPage()">Yes</button>
+            <button id="noBtn" onmouseover="moveNoButton()">No</button>
+        </div>
+    </div>
+
+    <script>
+        // No button mela mouse pona adhu vera edathuku odum
+        function moveNoButton() {
+            const btn = document.getElementById('noBtn');
+            
+            // Browser window size poruthu random position generate pannum
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        // Yes click panna vara adutha screen
+        function nextPage() {
+            document.getElementById('mainCard').innerHTML = `
+               <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXM0cng1djhidDhtdG83cHo2cDZrbDEzYWg0OGs1ZDRnaGNhcXh6NCZlcD12MV9naWZzX3RyZW5kaW5nJmN0PWc/6Oc6PybQJa9rxTcNHU/giphy.gif" class="giphy-img" alt="Proposal GIF">
+                <p style="color: #e91e63; font-weight: bold;">I want to show you some special moments of us ❤️</p>
+                <button id="yesBtn" style="margin-top:20px;">Today lucky for You enjoy</button>
+            `;
+        }
+    </script>
+</body>
+</html>
